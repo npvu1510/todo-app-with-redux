@@ -13,3 +13,7 @@ export const setStatusAction = (status) => {
 export const setPriorityAction = (priority) => {
   return { type: 'filters/setPriority', payload: priority };
 };
+
+export const toggleCompleteAction = (id) => {
+  return { type: 'todoList/toggleComplete', payload: id };
+};
