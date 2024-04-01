@@ -13,8 +13,9 @@ export const filtersSelector = createSelector(
   searchSelector,
   statusSelector,
   prioritySelector,
-  (todoList, search, status, priority) =>
-    todoList.filter(
+  (todoList, search, status, priority) => {
+    console.log('RERUN SELECTOR:');
+    return todoList.filter(
       (item) =>
         item.name.toLowerCase().includes(search.toLowerCase()) &&
         (status !== 'All'
@@ -23,5 +24,6 @@ export const filtersSelector = createSelector(
             : !item.completed
           : true) &&
         (priority.length ? priority.includes(item.priority) : true)
-    )
+    );
+  }
 );

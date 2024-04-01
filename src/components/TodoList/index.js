@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import Todo from '../Todo';
 
-import { addItemAction } from '../../redux/actions';
+import todoListSlice from './todoListSlice';
 import { filtersSelector } from '../../redux/selectors';
 
 export default function TodoList() {
@@ -17,7 +17,7 @@ export default function TodoList() {
   const [priority, setPriority] = useState('High');
 
   const handleAddClick = (e) => {
-    dispatch(addItemAction({ name, priority }));
+    dispatch(todoListSlice.actions.addItem({ name, priority }));
     setName('');
   };
 
@@ -37,7 +37,7 @@ export default function TodoList() {
             key={item.id}
             id={item.id}
             name={item.name}
-            prioriry={item.priority}
+            priority={item.priority}
             completed={item.completed}
           />
         ))}
