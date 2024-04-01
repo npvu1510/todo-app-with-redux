@@ -16,7 +16,6 @@ export default function Filters() {
 
   const [searchContent, setSearchContent] = useState('');
   const [status, setStatus] = useState('All');
-  const [priority, setPriority] = useState([]);
 
   const handleSearchChange = (e) => {
     setSearchContent(e.target.value);
@@ -24,13 +23,11 @@ export default function Filters() {
   };
 
   const handleStatusChange = (e) => {
-    console.log(e.target.value);
     setStatus(e.target.value);
     dispatch(setStatusAction(e.target.value));
   };
 
   const handlePriorityChange = (value) => {
-    setPriority(value);
     dispatch(setPriorityAction(value));
   };
 

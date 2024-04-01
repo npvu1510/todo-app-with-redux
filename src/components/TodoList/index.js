@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Todo from '../Todo';
 
 import { addItemAction } from '../../redux/actions';
-import { todoListSelector, filtersSelector } from '../../redux/selectors';
+import { filtersSelector } from '../../redux/selectors';
 
 export default function TodoList() {
   console.log('rerender TodoList');

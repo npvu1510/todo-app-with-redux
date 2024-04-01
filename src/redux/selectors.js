@@ -6,11 +6,14 @@ export const searchSelector = (state) => state.filters.search;
 
 export const statusSelector = (state) => state.filters.status;
 
+export const prioritySelector = (state) => state.filters.priority;
+
 export const filtersSelector = createSelector(
   todoListSelector,
   searchSelector,
   statusSelector,
-  (todoList, search, status) =>
+  prioritySelector,
+  (todoList, search, status, priority) =>
     todoList.filter(
       (item) =>
         item.name.toLowerCase().includes(search.toLowerCase()) &&
@@ -18,6 +21,7 @@ export const filtersSelector = createSelector(
           ? status === 'Completed'
             ? item.completed
             : !item.completed
-          : true)
+          : true) &&
+        (priority.length ? priority.includes(item.priority) : true)
     )
 );
