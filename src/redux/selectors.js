@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-export const todoListSelector = (state) => state.todoList;
+export const todoListSelector = (state) => state.todoList.todos;
 
 export const searchSelector = (state) => state.filters.search;
 

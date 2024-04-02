@@ -1,11 +1,24 @@
+import { useEffect } from 'react';
+
 import { Typography, Divider } from 'antd';
+
 import './App.css';
 import TodoList from './components/TodoList';
 import Filters from './components/Filters';
 
+import './fakeApi';
+import { useDispatch } from 'react-redux';
+import { fetchTodosThunk } from './components/TodoList/todoListSlice';
+
 const { Title } = Typography;
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTodosThunk());
+  }, [dispatch]);
+
   return (
     <div
       style={{
